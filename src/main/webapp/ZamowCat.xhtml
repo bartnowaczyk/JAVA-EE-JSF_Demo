@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/templates/Default.xhtml">
+	<ui:define name="content">
+	 
+	<f:metadata>
+	  <f:viewParam name="id" value="#{itemFormCatBean.id}"/>
+	</f:metadata>
+
+	 
+	 <h:form id="zamowienieForm">
+	 <h:panelGrid>
+		<h:messages id="messages" showDetail="#{true}" showSummary="#{false}" />
+	</h:panelGrid>
+	
+	<h:dataTable value="#{itemFormCatBean.catProducts}" var="item" id="items">
+	
+	   <f:facet name="header">#{msg.produktKategoria}</f:facet>
+      
+      <h:column>
+        <f:facet name="header">#{msg.ProductName}</f:facet>
+        #{item.nazwa}
+      </h:column>
+      
+      <h:column>
+        <f:facet name="header">#{msg.unit}</f:facet>
+        #{item.jednostka}
+      </h:column>
+      
+      <h:column>
+        <f:facet name="header">#{msg.category}</f:facet>
+        #{item.kategoria.nazwa}
+      </h:column>
+      
+      <h:column>
+        <f:facet name="header">#{msg.lastPrice}</f:facet>
+        #{item.ostatniaCena} zł / #{item.jednostka}
+      </h:column>
+      
+      <h:column>
+      	<f:facet name="header"></f:facet>
+		<h:commandButton value="#{msg.actionOrder}" action="#{itemFormCatBean.getDetailedInfo}" />
+      </h:column>
+	</h:dataTable>
+
+
+			
+	</h:form>
+ 
+	
+
+	</ui:define>
+	
+</ui:composition>

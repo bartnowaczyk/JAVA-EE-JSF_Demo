@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/templates/Default.xhtml">
+	<ui:define name="content">
+	 <h:form>
+		<h:dataTable value="#{itemFormCatBean.allProducts}" var="item">
+		   <f:facet name="header">#{msg.produktKategoria}</f:facet>
+      
+      <h:column>
+        <f:facet name="header">#{msg.ProductName}</f:facet>
+        #{item.nazwa}
+      </h:column>
+      
+      <h:column>
+        <f:facet name="header">#{msg.unit}</f:facet>
+        #{item.jednostka}
+      </h:column>
+      
+      <h:column>
+        <f:facet name="header">#{msg.category}</f:facet>
+        #{item.kategoria}
+      </h:column>
+      
+      <h:column>
+        <f:facet name="header">#{msg.lastPrice}</f:facet>
+        #{item.ostatniaCena}
+      </h:column>
+            
+      <h:column>
+        <f:facet name="header">#{msg.ourPrice}</f:facet>
+        #{item.naszaCena}
+      </h:column>      
+      
+      <h:column>
+        <f:facet name="header">#{msg.normalPrice}</f:facet>
+        #{item.sklepowaCena}
+      </h:column>
+      
+      <h:column>
+        <f:facet name="header"></f:facet>
+        <h:commandLink value="#{msg.actionOrder}"/>
+      </h:column>
+		
+		</h:dataTable>
+	</h:form>
+	</ui:define>
+	
+</ui:composition>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/templates/Default.xhtml">
+	<ui:define name="content">
+	 
+
+	 
+	 <h:form id="koszykForm">
+	 <h:panelGrid>
+		<h:messages id="messages" showDetail="#{true}" showSummary="#{false}" />
+	</h:panelGrid>
+	
+	<h:panelGrid>
+		<h:outputText value="Koszyk zamówień należący do: ">
+		</h:outputText>
+		<h:outputText value="#{KoszykBean.kz.member.nazwisko}">
+		</h:outputText>
+	</h:panelGrid>
+	
+	<h:dataTable value="#{KoszykBean.allOrders}" var="order">
+		<h:column>
+	        	<f:facet name="header">#{msg.ProductName}</f:facet>
+	        	#{order.produkt.nazwa}
+    		</h:column>
+    		<h:column>
+		        <f:facet name="header">#{msg.Quantity}</f:facet>
+        		#{order.ilosc}
+			</h:column>	
+    		<h:column>
+		        <f:facet name="header">#{msg.Price}</f:facet>
+        		#{order.produkt.ostatniaCena}
+			</h:column>			
+
+    		<h:column>
+		        <f:facet name="header">#{msg.Value}</f:facet>
+        		#{order.produkt.ostatniaCena*order.ilosc}
+			</h:column>
+			
+			<h:column>
+		      	<f:facet name="header"></f:facet>
+				<h:commandButton value="#{msg.DeleteButton}" action="#{KoszykBean.Delete}" />
+			</h:column>
+
+			<h:column>
+		      	<f:facet name="header"></f:facet>
+				<h:commandButton value="#{msg.EditButton}" action="#{KoszykBean.Edit}" />
+			</h:column>
+				
+	</h:dataTable>
+			
+	<h:panelGrid columns="2">
+		<h:outputText value="Łączna wartość koszyka: ">
+		</h:outputText>
+		<h:outputText value="#{KoszykBean.kz.orderValue}">
+		</h:outputText>
+	</h:panelGrid>
+	
+	
+	<h:panelGrid>
+     	<f:facet name="header"></f:facet>
+		<h:commandButton value="#{msg.ApproveButton}" action="#{KoszykBean.Approve}" />
+	</h:panelGrid>
+				
+	</h:form>
+ 
+	
+
+	</ui:define>
+	
+</ui:composition>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	template="/templates/loginTemplate.xhtml">
+
+	<ui:define name="loginContent">
+		<h:form id="login">
+					<h:panelGrid columns="2" cellpadding="10">
+					  
+						<h:outputText value="#{msg.LoginName}" />
+						<h:inputText id="login_name" label="User name" value="#{logKoopBean.member.login}" required="true">
+						</h:inputText>
+						<h:outputText value="#{msg.LoginPasswd}" />
+						<h:inputSecret id="login_pass" value="#{logKoopBean.member.passwd}" required="true" />
+						
+						<h:commandButton type="submit" value="Login" action="#{logKoopBean.check}" />
+					</h:panelGrid>
+					<h:panelGrid>
+						<h:messages id="messages" showDetail="#{true}" showSummary="#{false}" />
+						<h:outputText id="nameOutput" value="#{logKoopBean.alert}" />
+					</h:panelGrid>
+			
+		</h:form>
+	
+	</ui:define>
+</ui:composition>
+

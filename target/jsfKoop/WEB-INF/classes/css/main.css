@@ -1,0 +1,56 @@
+
+h2.colorowe {
+	color: red;
+}
+
+div.headingAndMenu {
+	width: 1200px;
+	height: 140px;
+	border: 1px solid;
+	margin: 0 auto 0 auto;
+}
+
+div.heading {
+	width: 1198px;
+	height: 80px;
+	background: #ccc;	
+}
+
+div.menu {
+	width: 1198px;
+	height: 60px;
+	background: #cfc;	
+}
+
+div.content {
+	width: 1198px;
+	min-height: 500px;
+	background: #cfc;
+	margin: 0 auto 0 auto;
+}
+
+#container {
+    display: table;
+    width: 100%;
+    height: 100%;
+
+}
+
+#container .top_login {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+#container .login {
+	border-radius: 20px; 
+	-moz-border-radius: 20px;
+	-webkit-border-radius: 20px;
+	background: #ccc;
+	width: 350px;
+	min-height: 150px;
+	margin-left:auto; margin-right:auto; 
+	-moz-box-shadow: 10px 10px 5px #888;
+	-webkit-box-shadow: 10px 10px 5px #888;
+	box-shadow: 10px 10px 5px #888;	
+	padding-top: 10px;
+}

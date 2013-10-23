@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	template="/templates/Default.xhtml">
+	<ui:define name="content">
+	 
+	 <h:form id="editMemberForm">
+	 <h:panelGrid>
+		<h:messages id="messages" showDetail="#{true}" showSummary="#{false}" />
+	</h:panelGrid>
+	
+	<h:dataTable value="#{editMemberBean.editMember}" var="item">
+
+	   <h:column>
+	   	<f:facet name="header"> </f:facet>
+	    <h:panelGrid>
+	    	<h:outputText value="Dotychczasowe dane" />
+	    	<h:outputText value="Nowe dane" />
+	    </h:panelGrid>
+	   </h:column>
+
+     
+       <h:column>
+        <f:facet name="header">Login </f:facet>
+			<h:panelGrid>
+		       	<h:outputText value="#{item.login}" />
+	        	<h:inputText id="login" value="#{editMemberBean.editMember.login}" />
+    		</h:panelGrid>    	
+        	
+       </h:column>
+	       
+       <h:column>
+        <f:facet name="header">Imię i nazwisko</f:facet>
+        	<h:panelGrid>
+	        	<h:outputText value="#{item.nazwisko}" />
+    	    	<h:inputText id="nazwisko" value="#{editMemberBean.editMember.nazwisko}" />
+        	</h:panelGrid>	
+       </h:column>
+     
+      <h:column>
+        <f:facet name="header">Adres e-mail</f:facet>        
+        	<h:panelGrid>
+		        	<h:outputText value="#{item.mail}" /> 	
+       	        	<h:inputText id="mail" value="#{editMemberBean.editMember.mail}" />
+       	    </h:panelGrid>
+       </h:column>
+     
+      <h:column>
+              <f:facet name="header">Telefon</f:facet>
+        	<h:panelGrid>
+		        	<h:outputText value="#{item.telefon}" />             
+	       			<h:inputText id="phone" value="#{editMemberBean.editMember.telefon}">	
+			       		<f:ajax execute="@this" render="beanState" />
+	    			</h:inputText>   			
+	       	</h:panelGrid>
+      </h:column>
+     
+            <h:column>
+      	<f:facet name="header"></f:facet>
+        	<h:panelGrid>
+		        	<h:outputText value="" />        	
+					<h:commandButton value="#{msg.ChangeDate}" action="#{editMemberBean.change}" />
+  			</h:panelGrid>
+
+      </h:column>
+			<h:panelGrid id="beanState" columns="2">
+				<h:outputText id="nameOutput" value="#{editMemberBean.doZmiany.telefon}" />
+			</h:panelGrid>
+	</h:dataTable>
+
+   
+			
+	</h:form>
+ 
+	
+
+	</ui:define>
+	
+</ui:composition>

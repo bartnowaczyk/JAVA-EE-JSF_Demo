@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<div>
+	<h:form>
+		<p:megaMenu>
+			<p:submenu label="Zamów produkty">
+				<p:column>
+					<p:submenu>
+						<p:menuitem value="Wszystkie produkty" url="ZamowAll.jsf" />					
+					</p:submenu>
+					<p:submenu>
+						<p:menuitem value="Owoce" url="ZamowCat.jsf?id=1" />
+						<p:menuitem value="Warzywa" url="ZamowCat.jsf?id=2" />
+						<p:menuitem value="Produkcja własna" url="ZamowCat.jsf?id=14" />
+						<p:menuitem value="Produkty ekologiczne" url="ZamowCat.jsf?id=16" />
+						<p:menuitem value="Przyprawy" url="ZamowCat.jsf?id=13" />
+						<p:menuitem value="Suszonki" url="ZamowCat.jsf?id=12" />
+					</p:submenu>
+				</p:column>
+			</p:submenu>
+			<p:menuitem value="Koszyk zamówień" url="Koszyk.jsf" />
+			<p:submenu label="Moje konto">
+				<p:column>
+					<p:submenu>
+						<p:menuitem value="Zmień dane" url="EditMember.jsf" />
+						<p:menuitem value="Zmień hasło" url="EditPasswd.jsf" />
+						<p:menuitem value="Historia zamówień" url="#" />
+					</p:submenu>
+				</p:column>
+			</p:submenu>
+					
+	        <p:menuitem value="Wyloguj się" action="#{outBean.logout}" icon="ui-icon-close" />  
+		</p:megaMenu>
+	</h:form>
+ </div>
+  
+  
+</ui:composition>

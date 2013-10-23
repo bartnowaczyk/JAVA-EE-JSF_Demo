@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	template="/templates/Default.xhtml">
+	<ui:define name="content">
+	 
+	 <h:form id="zamowienieForm">
+	 <h:panelGrid>
+		<h:messages id="messages" showDetail="#{true}" showSummary="#{false}" />
+	</h:panelGrid>
+	
+	<h:dataTable value="#{itemFormCatBean.prodDoZam}" var="item">
+     
+      <h:column>
+        <f:facet name="header">#{msg.ProductName}</f:facet>
+        #{item.nazwa}
+      </h:column>
+      
+      <h:column>
+        <f:facet name="header">#{msg.unit}</f:facet>
+        #{item.jednostka}
+      </h:column>
+      
+      <h:column>
+        <f:facet name="header">#{msg.category}</f:facet>
+        #{item.kategoria.nazwa}
+      </h:column>
+      
+      <h:column>
+        <f:facet name="header">#{msg.lastPrice}</f:facet>
+        #{item.ostatniaCena} zł / #{item.jednostka}
+      </h:column>
+            
+      <h:column>
+        <f:facet name="header">#{msg.OrderLabel}</f:facet>
+        <h:inputText id="ilosc" value="#{itemFormCatBean.ilosc}" />
+      </h:column>
+      
+      
+      <h:column>
+      	<f:facet name="header"></f:facet>
+		<h:commandButton value="#{msg.actionConfirm}" action="#{itemFormCatBean.addOrder}" />
+  
+
+      </h:column>
+	</h:dataTable>
+
+
+			
+	</h:form>
+ 
+	
+
+	</ui:define>
+	
+</ui:composition>
